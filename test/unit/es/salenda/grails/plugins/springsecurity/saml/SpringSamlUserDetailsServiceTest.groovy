@@ -1,10 +1,9 @@
 package es.salenda.grails.plugins.springsecurity.saml
 
-import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
-
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
+import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
 import org.junit.Before
 import org.junit.Test
 import org.opensaml.saml2.core.impl.AssertionImpl
@@ -16,7 +15,6 @@ import test.TestSamlUser
 import test.TestUserRole
 
 import static es.salenda.grails.plugins.springsecurity.saml.UnitTestUtils.*
-import grails.validation.ValidationException
 
 @TestFor(SpringSamlUserDetailsService)
 @Mock([TestSamlUser, TestRole, TestUserRole])
@@ -171,7 +169,7 @@ class SpringSamlUserDetailsServiceTest {
 		assert TestSamlUser.count() == 1
 	}
 
-    @Test(expected=ValidationException.class)
+    @Test(expected=UsernameNotFoundException.class)
     void "loadUserBySAML should raise valid exception for users in invalid states"() {
 
         def sharedEmail = "some.user@gmail.com"

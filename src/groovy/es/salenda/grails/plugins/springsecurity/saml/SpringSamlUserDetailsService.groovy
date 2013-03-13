@@ -21,6 +21,7 @@ import org.springframework.security.core.authority.GrantedAuthorityImpl
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.saml.SAMLCredential
 import org.springframework.security.saml.userdetails.SAMLUserDetailsService
+import org.springframework.dao.DataAccessException
 
 /**
  * A {@link GormUserDetailsService} extension to read attributes from a LDAP-backed 
@@ -185,7 +186,7 @@ class SpringSamlUserDetailsService extends GormUserDetailsService implements SAM
 			userClazz.withTransaction {
 				def existingUser = userClazz.findWhere(whereClause)
 				if (!existingUser) {
-					user.save(failOnError: true)
+					if (!user.save()) throw new UsernameNotFoundException("Could not save user ${user}");
 				} else {
 					user = updateUserProperties(existingUser, user)
 
