@@ -25,15 +25,12 @@ class SpringSamlUserDetailsServiceSpec extends IntegrationSpec {
 			TestUserRole userRole = TestUserRole.build(user:user,role:role)
 			SpringSamlUserDetailsService service = new SpringSamlUserDetailsService(samlAutoAssignAuthorities: false,samlAutoCreateActive: true,userDomainClassName: "test.TestSamlUser",samlAutoCreateKey: 'username',authorityNameField: 'authority',authorityJoinClassName: 'test.TestUserRole')
 			service.grailsApplication = grailsApplication
-		  def loadedUser
+
 		when:
 			SAMLCredential cred
 			cred = new SAMLCredential(new NameIDImpl("", "", ""), new AssertionImpl("", "", ""), null, null)
 			cred.metaClass.getNameID = { [value: "$username"] }
-			loadedUser = service.loadUserBySAML(cred)
-
-
-
+			def loadedUser = service.loadUserBySAML(cred)
 
 		then:
 			user.username == username && user.email == 'bob@fake.com' && loadedUser && loadedUser.username == username

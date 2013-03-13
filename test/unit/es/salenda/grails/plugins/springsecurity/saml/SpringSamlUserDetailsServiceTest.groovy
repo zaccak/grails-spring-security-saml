@@ -16,6 +16,7 @@ import test.TestSamlUser
 import test.TestUserRole
 
 import static es.salenda.grails.plugins.springsecurity.saml.UnitTestUtils.*
+import grails.validation.ValidationException
 
 @TestFor(SpringSamlUserDetailsService)
 @Mock([TestSamlUser, TestRole, TestUserRole])
@@ -169,6 +170,21 @@ class SpringSamlUserDetailsServiceTest {
 
 		assert TestSamlUser.count() == 1
 	}
+
+    @Test(expected=ValidationException.class)
+    void "loadUserBySAML should raise valid exception for users in invalid states"() {
+
+        def sharedEmail = "some.user@gmail.com"
+        // email should be unique but we are going to try and save a user whose username has changed but email has not.
+        def oldAccount = new TestSamlUser(username: "someUser", password: 'test', email: sharedEmail).save();
+
+        service.samlAutoCreateActive = true
+        service.samlAutoCreateKey = 'username'
+        service.samlUserAttributeMappings = [email: "$MAIL_ATTR_NAME"]
+        setMockSamlAttributes(credential, ["$USERNAME_ATTR_NAME": username, "$MAIL_ATTR_NAME": sharedEmail])
+
+        service.loadUserBySAML(credential)
+    }
 
 	@Test
 	void "loadUserBySAML should persist the role for a new user"() {

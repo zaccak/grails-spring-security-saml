@@ -33,7 +33,7 @@ class TestSamlUser {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
-		email nullable: true
+		email nullable: true, unique: true
 		firstName nullable: true
 	}
 }
