@@ -49,7 +49,7 @@ import org.apache.commons.httpclient.HttpClient
 
 class SpringSecuritySamlGrailsPlugin {
     // the plugin version
-    def version = "1.0.0.M17"
+    def version = "1.0.0.M18"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3 > *"
     // the other plugins this plugin depends on
@@ -81,7 +81,7 @@ SAML 2.x support for the Spring Security Plugin
     def organization = [:]
 
     // Any additional developers beyond the author specified above.
-    def developers = [ [ name: "Feroz Panwaskar", email: "feroz.panwaskar@gmail.com" ], [ name: "Marco Vermeulen", email: "vermeulen.mp@gmail.com" ]]
+    def developers = [ [ name: "Feroz Panwaskar", email: "feroz.panwaskar@gmail.com" ], [ name: "Jeff Beck", email: "beckje01@gmail.com" ]]
 
     // Location of the plugin's issue tracker.
     def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GPSPRINGSECURITYSAML" ]
