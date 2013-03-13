@@ -60,12 +60,15 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-			test ":spock:0.7"
-			test ":code-coverage:1.2.5"
-			compile ":build-test-data:2.0.3"
-			compile ":guard:1.0.7"
-			build(":tomcat:$grailsVersion",
-              ":hibernate:$grailsVersion") {
+        test    ":spock:0.7"
+        test    ":code-coverage:1.2.5"
+        compile ":build-test-data:2.0.3"
+        compile ":guard:1.0.7"
+        compile ":spring-security-core:1.2.1"
+
+        build(  ":tomcat:$grailsVersion",
+                ":hibernate:$grailsVersion",
+                ":release:2.0.4") {
             export = false
         }
     }
@@ -83,9 +86,6 @@ if (mavenConfigFile.exists()) {
 else {
 	println "No mavenInfo file found."
 }
-//</editor-fold>
-
-
 
 codenarc.reports = {
 	CodeNarcReport('xml') {
