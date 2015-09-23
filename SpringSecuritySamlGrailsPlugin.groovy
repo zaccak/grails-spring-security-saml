@@ -37,10 +37,10 @@ import org.springframework.security.saml.key.JKSKeyManager
 import org.springframework.security.saml.util.VelocityFactory
 import org.springframework.security.saml.context.SAMLContextProviderImpl
 
-import es.salenda.grails.plugins.springsecurity.saml.SpringSamlUserDetailsService
-import es.salenda.grails.plugins.springsecurity.saml.GrailsSAMLAuthenticationProvider
-import es.salenda.grails.plugins.springsecurity.saml.SamlTagLib
-import es.salenda.grails.plugins.springsecurity.saml.SamlSecurityService
+import es.salenda.grails.plugin.springsecurity.saml.SpringSamlUserDetailsService
+import es.salenda.grails.plugin.springsecurity.saml.GrailsSAMLAuthenticationProvider
+import es.salenda.grails.plugin.springsecurity.saml.SamlTagLib
+import es.salenda.grails.plugin.springsecurity.saml.SamlSecurityService
 
 import org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider;
 import org.opensaml.saml2.metadata.provider.HTTPMetadataProvider
