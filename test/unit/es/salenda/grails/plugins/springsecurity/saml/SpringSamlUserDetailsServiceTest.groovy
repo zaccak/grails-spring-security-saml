@@ -3,7 +3,8 @@ package es.salenda.grails.plugins.springsecurity.saml
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
-import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
+import grails.plugin.springsecurity.userdetails.GrailsUser
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.opensaml.saml2.core.impl.AssertionImpl
@@ -59,6 +60,17 @@ class SpringSamlUserDetailsServiceTest {
 		// set default username to be returned in the saml response
 		setMockSamlAttributes(credential, ["$USERNAME_ATTR_NAME": username])
 	}
+
+    @After
+    public void tearDown() {
+        // Reset back the methods
+        TestUserRole.metaClass.'static'.removeAll = { TestSamlUser userWithRoles ->
+            executeUpdate "DELETE FROM TestUserRole WHERE user=:user", [user: userWithRoles]
+        }
+        TestUserRole.metaClass.'static'.create = { TestSamlUser userWithNoRoles, TestRole role ->
+            new TestUserRole(user: userWithNoRoles, role: role).save(flush: false, insert: true)
+        }
+    }
 
 	@Test
 	void "loadUserBySAML should return a GrailsUser"() {

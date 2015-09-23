@@ -1,4 +1,4 @@
-/* Copyright 2006-2010 the original author or authors.
+/* Copyright 2006-2015 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,8 @@
  */
 package es.salenda.grails.plugins.springsecurity.saml
 
-import grails.plugins.springsecurity.SecurityTagLib
+import grails.plugin.springsecurity.SecurityTagLib
+import grails.util.Holders
 import org.springframework.security.saml.SAMLLogoutFilter
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
@@ -45,13 +46,13 @@ class SamlTagLib extends SecurityTagLib {
 	 */
 	def loginLink = { attrs, body ->
 		def contextPath = request.contextPath
-		def url = grailsApplication.config.grails.plugins.springsecurity.auth.loginFormUrl
+		def url = Holders.grailsApplication.config.grails.plugin.springsecurity.auth.loginFormUrl
 		def selectIdp = attrs.remove('selectIdp')
 
 		url = "${contextPath}${url}"
 		if (!selectIdp) {
-			def defaultIdp = grailsApplication.config.grails.plugins.springsecurity.saml.metadata.defaultIdp
-			url += "?idp=${grailsApplication.config.grails.plugins.springsecurity.saml.metadata.providers[defaultIdp]}"
+			def defaultIdp = Holders.grailsApplication.config.grails.plugin.springsecurity.saml.metadata.defaultIdp
+			url += "?idp=${Holders.grailsApplication.config.grails.plugin.springsecurity.saml.metadata.providers[defaultIdp]}"
 		}
 
 		def elementClass = generateClassAttribute(attrs)
@@ -69,7 +70,7 @@ class SamlTagLib extends SecurityTagLib {
 
 		def url = LOGOUT_SLUG
 
-		def samlEnabled = grailsApplication.config.grails.plugins.springsecurity.saml.active
+		def samlEnabled = Holders.grailsApplication.config.grails.plugin.springsecurity.saml.active
 		if(samlEnabled){
 			url = SAMLLogoutFilter.FILTER_URL
 		}

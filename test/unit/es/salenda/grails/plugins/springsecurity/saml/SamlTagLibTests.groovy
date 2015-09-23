@@ -1,6 +1,7 @@
 package es.salenda.grails.plugins.springsecurity.saml
 
 import grails.test.mixin.*
+import grails.util.Holders
 import org.junit.Before
 import org.junit.Test
 import org.junit.Ignore
@@ -91,9 +92,8 @@ class SamlTagLibTests {
 	}
 
 	private void mockConfig(boolean samlActive=true) {
-		SamlTagLib.metaClass.getGrailsApplication = {->
-			return [config:
-					[grails: [plugins: [springsecurity: [saml: [active: samlActive]]]]]]
-		}
-	}
+        Holders.grailsApplication.config.grails.plugin.springsecurity.saml.active = samlActive
+        Holders.grailsApplication.config.grails.plugin.springsecurity.auth.loginFormUrl = [:]
+
+    }
 }

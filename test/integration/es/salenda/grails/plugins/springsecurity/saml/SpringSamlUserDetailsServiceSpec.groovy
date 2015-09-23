@@ -1,6 +1,6 @@
 package es.salenda.grails.plugins.springsecurity.saml
 
-import grails.plugin.spock.IntegrationSpec
+import grails.test.spock.IntegrationSpec
 import test.TestUserRole
 import test.TestSamlUser
 import spock.lang.Ignore

@@ -15,7 +15,7 @@ log4j = {
 }
 
 grails {
-	plugins {
+	plugin {
 		springsecurity {
 			userLookup {
 				userDomainClassName = 'test.TestSamlUser'

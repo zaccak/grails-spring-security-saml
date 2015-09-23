@@ -3,7 +3,7 @@ package es.salenda.grails.plugins.springsecurity.saml
 import static es.salenda.grails.plugins.springsecurity.saml.UnitTestUtils.*
 import grails.test.mixin.*
 
-import org.codehaus.groovy.grails.plugins.springsecurity.GrailsUser
+import grails.plugin.springsecurity.userdetails.GrailsUser
 import org.junit.Before
 import org.junit.Test
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

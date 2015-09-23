@@ -1,9 +1,8 @@
-import org.codehaus.groovy.grails.compiler.GrailsClassLoader;
-import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
-import org.codehaus.groovy.grails.plugins.springsecurity.SecurityFilterPosition
+import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.SecurityFilterPosition
 
 import org.springframework.core.io.ClassPathResource;
-import org.codehaus.groovy.grails.plugins.springsecurity.AjaxAwareAuthenticationFailureHandler
+import grails.plugin.springsecurity.web.authentication.AjaxAwareAuthenticationFailureHandler
 import org.springframework.security.web.DefaultRedirectStrategy
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler
@@ -49,7 +48,7 @@ import org.apache.commons.httpclient.HttpClient
 
 class SpringSecuritySamlGrailsPlugin {
     // the plugin version
-    def version = "1.0.0.M20"
+    def version = "2.0.0.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3 > *"
     // the other plugins this plugin depends on
@@ -81,13 +80,13 @@ SAML 2.x support for the Spring Security Plugin
     def organization = [:]
 
     // Any additional developers beyond the author specified above.
-    def developers = [ [ name: "Feroz Panwaskar", email: "feroz.panwaskar@gmail.com" ], [ name: "Jeff Beck", email: "beckje01@gmail.com" ]]
+    def developers = [ [ name: "Feroz Panwaskar", email: "feroz.panwaskar@gmail.com" ], [ name: "Jeff Beck", email: "beckje01@gmail.com" ], [ name: "Sphoorti Acharya", email: "sphoortiacharya@gmail.com" ]]
 
     // Location of the plugin's issue tracker.
     def issueManagement = [ system: "JIRA", url: "http://jira.grails.org/browse/GPSPRINGSECURITYSAML" ]
 
     // Online location of the plugin's browseable source code.
-    def scm = [ url: "https://github.com/fpanwaskar/grails-spring-security-saml" ]
+    def scm = [ url: "https://github.com/sphoortia/grails-spring-security-saml" ]
 
 	def providers = []
 

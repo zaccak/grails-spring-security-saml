@@ -6,19 +6,26 @@ grails.project.test.reports.dir = "target/test-reports"
 
 grails.release.scm.enabled = false
 
+grails.project.dependency.resolver = "maven"
+
 grails.project.dependency.resolution = {
     inherits ('global') {
 		excludes "xml-apis"
 	}
 	log 'warn'
 
-	repositories {
-		grailsPlugins()
-		grailsHome()
-		grailsCentral()
-		mavenRepo "https://build.shibboleth.net/nexus/content/repositories/releases"
-		mavenRepo "https://build.shibboleth.net/nexus/content/groups/public/"
-		mavenCentral()
+    repositories {
+        if (System.properties['PROXY_SERVER_NAME']) {
+            mavenRepo "${System.properties['PROXY_SERVER_NAME']}"
+        }
+        grailsPlugins()
+        grailsHome()
+        grailsCentral()
+        mavenCentral()
+        mavenRepo "https://build.shibboleth.net/nexus/content/repositories/releases"
+        mavenRepo "https://build.shibboleth.net/nexus/content/groups/public/"
+        mavenRepo "https://code.lds.org/nexus/content/groups/main-repo"
+        mavenRepo "http://repository.jboss.org/maven2/"
 	}
 
     dependencies {
@@ -55,19 +62,22 @@ grails.project.dependency.resolution = {
         compile('org.owasp.esapi:esapi:2.0.1') {
             excludes 'antisamy', 'bsh-core', 'commons-beanutils-core', 'commons-collections', 'commons-configuration', 'commons-fileupload', 'commons-io', 'jsp-api', 'junit', 'log4j', 'servlet-api', 'xom'
         }
+        compile ("org.springframework.security.extensions:spring-security-saml2-core:1.0.1.RELEASE") {
+            export = false
+        }
+        compile('org.springframework.security:spring-security-web:3.2.8.RELEASE')
     }
 
     plugins {
-        test    ":spock:0.7"
-        test    ":code-coverage:1.2.5"
-        compile (   ":build-test-data:2.0.3",
-                    ":guard:1.0.7",
-                    ":spring-security-core:1.2.1" ) {
+
+        compile (   ":build-test-data:2.4.0",
+                    ":guard:2.1.0",
+                    ":spring-security-core:2.0-RC5" ) {
             export = false
         }
-
-        build(  ":tomcat:$grailsVersion",
-                ":hibernate:$grailsVersion",
+        test    ":code-coverage:2.0.3-3"
+        build(  ":tomcat:7.0.52.1",
+                ":hibernate:3.6.10.19",
                 ":release:2.0.4") {
             export = false
         }
