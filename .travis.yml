@@ -1,6 +1,6 @@
 language: groovy
 
 jdk:
-  - openjdk6
+  - oraclejdk8
 
-script: ./grailsw clean; ./grailsw "test-app -unit -integration" 
+script: ./grailsw clean; ./grailsw refresh-dependencies --non-interactive; ./grailsw "test-app -unit -integration"
