@@ -78,23 +78,11 @@ grails.project.dependency.resolution = {
         test    ":code-coverage:2.0.3-3"
         build(  ":tomcat:7.0.52.1",
                 ":hibernate:3.6.10.19",
-                ":release:2.0.4") {
+                ":release:3.1.1",
+                ":rest-client-builder:2.1.1") {
             export = false
         }
     }
-}
-
-//<editor-fold desc="Release Plugin External Maven Config">
-def mavenConfigFile = new File("${basedir}/grails-app/conf/mavenInfo.groovy")
-if (mavenConfigFile.exists()) {
-	def slurpedMavenInfo = new ConfigSlurper().parse(mavenConfigFile.toURL())
-	slurpedMavenInfo.grails.project.repos.each {k, v ->
-		println "Adding maven info for repo $k"
-		grails.project.repos."$k" = v
-	}
-}
-else {
-	println "No mavenInfo file found."
 }
 
 codenarc.reports = {

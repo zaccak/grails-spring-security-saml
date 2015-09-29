@@ -1,7 +1,6 @@
 h1. Spring Security SAML plugin
 
-The Spring Security SAML plugin aims to add SAML support to Spring Security
+The Spring Security SAML plugin aims to add SAML support to Spring Security.  It depends on the http://grails.org/plugin/spring-security-core[Spring Security Core plugin] and
+http://projects.spring.io/spring-security-saml/[Spring Security SAML].
 
-{note}
-This is a work in progress.
-{note}
+Once you have configured a SAML 2.0 IDP server(WSO2, Shibboleth etc) and have configured your Grails application(s) as provider, you can authenticate using SAMl 2.0 protocol.

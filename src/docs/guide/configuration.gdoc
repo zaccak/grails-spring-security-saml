@@ -1,8 +1,5 @@
 h1. Configuration options for the plugin
 
-
-grails-app/conf/Config.groovy
-
 {note}
 Any property overrides must be specified in @grails-app/conf/Config.groovy@ using the @grails.plugin.springsecurity@ suffix, for example
 {code}
@@ -15,18 +12,18 @@ There are several configuration options for the Shibbolet Natibe SP plugin. In p
 {table}
 *Name* | *Default* | *Meaning*
 saml.active | true | Activate Spring Security SAML
-saml.afterLoginUrl | '/' | TODO
-saml.afterLogoutUrl | '/' | TODO
+saml.afterLoginUrl | '/' | Provide the login Url which is intercepted and taken to the IDP login page
+saml.afterLogoutUrl | '/' | Provider after logout url to which user should be redirected to on logout
 saml.userGroupAttribute | "memberOf" | TODO
 saml.autoCreate.active |  false | TODO
 saml.autoCreate.key | 'username' | TODO
-saml.metadata.defaultIdp | 'ping' | TODO
+saml.metadata.defaultIdp | 'ping' | Default IDP to use in case of multiple IDP setup Ex : adfs, shibb, wso2
 saml.metadata.url | '/saml/metadata' | TODO
-saml.metadata.providers | [ ping :'security/idp-local.xml'] | TODO
-saml.metadata.sp.file | 'security/sp.xml' | TODO
-saml.metadata.sp.defaults | [ local: true, alias: 'test', securityProfile: 'metaiop', signingKey: 'ping', encryptionKey: 'ping', tlsKey: 'ping', requireArtifactResolveSigned: false, requireLogoutRequestSigned: false, requireLogoutResponseSigned: false ] | TODO
-saml.keyManager.storeFile | 'classpath:security/keystore.jks' | TODO
-saml.keyManager.storePass | 'nalle123' | TODO
-saml.keyManager.passwords | [ ping: 'ping123' ] | TODO
-saml.keyManager.defaultKey | 'ping' | TODO
+saml.metadata.providers | [ ping :'security/idp-local.xml'] | Identity Service Providers that could be used for this application
+saml.metadata.sp.file | 'security/sp.xml' | Location of the service provider metadata file. This could be a classpath location, (for example, security/sp.xml) or it could be a absolute location on the machine (for example, C://temp/sp.xml or file:/home/u02/sp.xml)
+saml.metadata.sp.defaults | [ local: true, alias: 'test', securityProfile: 'metaiop', signingKey: 'ping', encryptionKey: 'ping', tlsKey: 'ping', requireArtifactResolveSigned: false, requireLogoutRequestSigned: false, requireLogoutResponseSigned: false ] | *local*: Pre-populated to indicate value to be picked up. *alias*: A alias name that is unique to this application Ex:  application-sp. *securityProfile*: Pre-populated value. *signingKey*: A key used to sign the messages that is unique to this application Ex: application-sp. *encryptionKey*: A key to to encrypt the message that is unique to this application Ex: application-sp. *tlsKey*: A tls key that is unique to this application Ex: application-sp. *requireArtifactResolveSigned*: Pre-Populated to set to false indicating artifact to be signed or not. *requireLogoutRequestSigned*: Pre-Populated to set to false indicating logout request to be signed or not. *requireLogoutResponseSigned*: Pre-Populated to set to false indicating logout response to be signed or not.
+saml.keyManager.storeFile | 'classpath:security/keystore.jks' | Location of the keystore file. This could be a classpath (for example, classpath:security/keystore.jks) or it could be a absolute location on the machine (for example, file:c://temp/keystore.jks or file:/home/u02/keystore.jks).
+saml.keyManager.storePass | 'nalle123' | Password used to decrypt the keys in the keystore created above.
+saml.keyManager.passwords | [ ping: 'ping123' ] | Key value pair to validate the key. Contains the key name used at the time of key-Store creation and password to decrypt the same.
+saml.keyManager.defaultKey | 'ping' | Key name used at the time of key-store creation
 {table}
