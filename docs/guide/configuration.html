@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>2 Configuration 1.0.0.M11</title>
+    <title>3 Configuration 2.0.0</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -27,7 +27,10 @@ function addJsClass() {
                     <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
                     </div>
                     
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/configuration.html"><strong>2</strong><span>Configuration</span></a>
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/usage.html"><strong>2</strong><span>Usage</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/configuration.html"><strong>3</strong><span>Configuration</span></a>
                     </div>
                     
                 </div>
@@ -54,7 +57,7 @@ function addJsClass() {
             <div id="main" class="corner-all">
 
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/usage.html">&lt;&lt; <strong>2</strong><span>Usage</span></a></div>
                 
 
                 <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
@@ -63,11 +66,11 @@ function addJsClass() {
 
 
                 <div class="project">
-                    <h1>2 Configuration - Reference Documentation</h1>
+                    <h1>3 Configuration - Reference Documentation</h1>
 
-                    <p><strong>Authors:</strong> Aaron J. Zirbes</p>
+                    <p><strong>Authors:</strong> Aaron J. Zirbes, Sphoorti Acharya</p>
 
-                    <p><strong>Version:</strong> 1.0.0.M11</p>
+                    <p><strong>Version:</strong> 2.0.0</p>
 
                     
                 </div>
@@ -76,18 +79,17 @@ function addJsClass() {
 
                 
 
-<h1 id="configuration">2 Configuration</h1>
-<h1>Configuration options for the plugin</h1><p class="paragraph"/>
-grails-app/conf/Config.groovy<p class="paragraph"/><blockquote class="note">
-Any property overrides must be specified in <code>grails-app/conf/Config.groovy</code> using the <code>grails.plugins.springsecurity</code> suffix, for example
-<div class="code"><pre>grails.plugins.springsecurity.saml.active = <span class="java&#45;keyword">true</span></pre></div>
-</blockquote><p class="paragraph"/>There are several configuration options for the Shibbolet Natibe SP plugin. In practice the defaults are fine for most deployments and only a few will need to be overridden.<p class="paragraph"/><table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Name</strong></th><th><strong class="bold">Default</strong></th><th><strong class="bold">Meaning</strong></th></tr><tr class="table-odd"><td>saml.active</td><td>true</td><td>Activate Spring Security SAML</td></tr><tr class="table-even"><td>saml.afterLoginUrl</td><td>'/'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.afterLogoutUrl</td><td>'/'</td><td>TODO</td></tr><tr class="table-even"><td>saml.userGroupAttribute</td><td>"memberOf"</td><td>TODO</td></tr><tr class="table-odd"><td>saml.autoCreate.active</td><td>false</td><td>TODO</td></tr><tr class="table-even"><td>saml.autoCreate.key</td><td>'username'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.metadata.defaultIdp</td><td>'ping'</td><td>TODO</td></tr><tr class="table-even"><td>saml.metadata.url</td><td>'/saml/metadata'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.metadata.providers</td><td>ping :'security/idp-local.xml'</td><td>TODO</td></tr><tr class="table-even"><td>saml.metadata.sp.file</td><td>'security/sp.xml'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.metadata.sp.defaults</td><td>local: true, alias: 'test', securityProfile: 'metaiop', signingKey: 'ping', encryptionKey: 'ping', tlsKey: 'ping', requireArtifactResolveSigned: false, requireLogoutRequestSigned: false, requireLogoutResponseSigned: false</td><td>TODO</td></tr><tr class="table-even"><td>saml.keyManager.storeFile</td><td>'classpath:security/keystore.jks'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.keyManager.storePass</td><td>'nalle123'</td><td>TODO</td></tr><tr class="table-even"><td>saml.keyManager.passwords</td><td>ping: 'ping123'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.keyManager.defaultKey</td><td>'ping'</td><td>TODO</td></tr></table>
+<h1 id="configuration">3 Configuration</h1>
+<h1>Configuration options for the plugin</h1><p class="paragraph"/><blockquote class="note">
+Any property overrides must be specified in <code>grails-app/conf/Config.groovy</code> using the <code>grails.plugin.springsecurity</code> suffix, for example
+<div class="code"><pre>grails.plugin.springsecurity.saml.active = <span class="java&#45;keyword">true</span></pre></div>
+</blockquote><p class="paragraph"/>There are several configuration options for the Shibbolet Natibe SP plugin. In practice the defaults are fine for most deployments and only a few will need to be overridden.<p class="paragraph"/><table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Name</strong></th><th><strong class="bold">Default</strong></th><th><strong class="bold">Meaning</strong></th></tr><tr class="table-odd"><td>saml.active</td><td>true</td><td>Activate Spring Security SAML</td></tr><tr class="table-even"><td>saml.afterLoginUrl</td><td>'/'</td><td>Provide the login Url which is intercepted and taken to the IDP login page</td></tr><tr class="table-odd"><td>saml.afterLogoutUrl</td><td>'/'</td><td>Provider after logout url to which user should be redirected to on logout</td></tr><tr class="table-even"><td>saml.userGroupAttribute</td><td>"memberOf"</td><td>specify the saml assertion attribute that holds returned group membership data</td></tr><tr class="table-odd"><td>saml.autoCreate.active</td><td>false</td><td>If you want the plugin to generate users in the DB as they are authenticated via SAML</td></tr><tr class="table-even"><td>saml.autoCreate.key</td><td>'username'</td><td>TODO</td></tr><tr class="table-odd"><td>saml.metadata.defaultIdp</td><td>'ping'</td><td>Default IDP to use in case of multiple IDP setup Ex : adfs, shibb, wso2</td></tr><tr class="table-even"><td>saml.metadata.url</td><td>'/saml/metadata'</td><td>URL where the metatdata for the application (SP) is availiable. You'll need this information to configure your IdP.</td></tr><tr class="table-odd"><td>saml.metadata.providers</td><td>ping :'security/idp-local.xml'</td><td>Identity Service Providers that could be used for this application</td></tr><tr class="table-even"><td>saml.metadata.sp.file</td><td>'security/sp.xml'</td><td>Location of the service provider metadata file. This could be a classpath location, (for example, security/sp.xml) or it could be a absolute location on the machine (for example, C://temp/sp.xml or file:/home/u02/sp.xml)</td></tr><tr class="table-odd"><td>saml.metadata.sp.defaults</td><td>local: true, alias: 'test', securityProfile: 'metaiop', signingKey: 'ping', encryptionKey: 'ping', tlsKey: 'ping', requireArtifactResolveSigned: false, requireLogoutRequestSigned: false, requireLogoutResponseSigned: false</td><td><strong class="bold">local</strong>: Pre-populated to indicate value to be picked up. <strong class="bold">alias</strong>: A alias name that is unique to this application Ex:  application-sp. <strong class="bold">securityProfile</strong>: Pre-populated value. <strong class="bold">signingKey</strong>: A key used to sign the messages that is unique to this application Ex: application-sp. <strong class="bold">encryptionKey</strong>: A key to to encrypt the message that is unique to this application Ex: application-sp. <strong class="bold">tlsKey</strong>: A tls key that is unique to this application Ex: application-sp. <strong class="bold">requireArtifactResolveSigned</strong>: Pre-Populated to set to false indicating artifact to be signed or not. <strong class="bold">requireLogoutRequestSigned</strong>: Pre-Populated to set to false indicating logout request to be signed or not. <strong class="bold">requireLogoutResponseSigned</strong>: Pre-Populated to set to false indicating logout response to be signed or not.</td></tr><tr class="table-even"><td>saml.keyManager.storeFile</td><td>'classpath:security/keystore.jks'</td><td>Location of the keystore file. This could be a classpath (for example, classpath:security/keystore.jks) or it could be a absolute location on the machine (for example, file:c://temp/keystore.jks or file:/home/u02/keystore.jks).</td></tr><tr class="table-odd"><td>saml.keyManager.storePass</td><td>'nalle123'</td><td>Password used to decrypt the keys in the keystore created above.</td></tr><tr class="table-even"><td>saml.keyManager.passwords</td><td>ping: 'ping123'</td><td>Key value pair to validate the key. Contains the key name used at the time of key-Store creation and password to decrypt the same.</td></tr><tr class="table-odd"><td>saml.keyManager.defaultKey</td><td>'ping'</td><td>Key name used at the time of key-store creation</td></tr></table>
 
 
 
                 <div style="clear:both;margin-top:15px;"></div>
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/usage.html">&lt;&lt; <strong>2</strong><span>Usage</span></a></div>
                 
                 <div style="clear:both"></div>
             </div>
