@@ -6,7 +6,7 @@ SAML 2.x support for the Spring Security Plugin
 
 SAML 2.x support for the Spring Security Plugin. It depends on a spring-security-saml2-core and spring-security-core plugins.
 
-Official documentation availiable http://sphoortia.github.io/grails-spring-security-saml/[Here]
+Documentation available [here](http://sphoortia.github.io/grails-spring-security-saml/)
 
-Please report any issues in http://jira.grails.org/browse/GPSPRINGSECURITYSAML[JIRA]
+Please report any issues in [JIRA](http://jira.grails.org/browse/GPSPRINGSECURITYSAML)
 
