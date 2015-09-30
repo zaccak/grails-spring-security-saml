@@ -14,11 +14,11 @@ There are several configuration options for the Shibbolet Natibe SP plugin. In p
 saml.active | true | Activate Spring Security SAML
 saml.afterLoginUrl | '/' | Provide the login Url which is intercepted and taken to the IDP login page
 saml.afterLogoutUrl | '/' | Provider after logout url to which user should be redirected to on logout
-saml.userGroupAttribute | "memberOf" | TODO
-saml.autoCreate.active |  false | TODO
+saml.userGroupAttribute | "memberOf" | specify the saml assertion attribute that holds returned group membership data
+saml.autoCreate.active |  false | If you want the plugin to generate users in the DB as they are authenticated via SAML
 saml.autoCreate.key | 'username' | TODO
 saml.metadata.defaultIdp | 'ping' | Default IDP to use in case of multiple IDP setup Ex : adfs, shibb, wso2
-saml.metadata.url | '/saml/metadata' | TODO
+saml.metadata.url | '/saml/metadata' | URL where the metatdata for the application (SP) is availiable. You'll need this information to configure your IdP.
 saml.metadata.providers | [ ping :'security/idp-local.xml'] | Identity Service Providers that could be used for this application
 saml.metadata.sp.file | 'security/sp.xml' | Location of the service provider metadata file. This could be a classpath location, (for example, security/sp.xml) or it could be a absolute location on the machine (for example, C://temp/sp.xml or file:/home/u02/sp.xml)
 saml.metadata.sp.defaults | [ local: true, alias: 'test', securityProfile: 'metaiop', signingKey: 'ping', encryptionKey: 'ping', tlsKey: 'ping', requireArtifactResolveSigned: false, requireLogoutRequestSigned: false, requireLogoutResponseSigned: false ] | *local*: Pre-populated to indicate value to be picked up. *alias*: A alias name that is unique to this application Ex:  application-sp. *securityProfile*: Pre-populated value. *signingKey*: A key used to sign the messages that is unique to this application Ex: application-sp. *encryptionKey*: A key to to encrypt the message that is unique to this application Ex: application-sp. *tlsKey*: A tls key that is unique to this application Ex: application-sp. *requireArtifactResolveSigned*: Pre-Populated to set to false indicating artifact to be signed or not. *requireLogoutRequestSigned*: Pre-Populated to set to false indicating logout request to be signed or not. *requireLogoutResponseSigned*: Pre-Populated to set to false indicating logout response to be signed or not.

@@ -13,7 +13,7 @@ There isn't much that you need to do in your application to be a SAML client. Ad
 {code}
 dependencies {
    ...
-   compile ':spring-security-saml:2.0-SNAPSHOT'
+   compile ':spring-security-saml:2.0.0'
 }
 {code}
 then configure any required parameters and whatever optional parameters you want in application.yml or application.groovy. These are described in detail in the include::configuration.adoc[] section
