@@ -66,6 +66,8 @@ grails.project.dependency.resolution = {
             export = false
         }
         compile('org.springframework.security:spring-security-web:3.2.8.RELEASE')
+
+        compile "org.jdom:jdom-legacy:1.1.3"
     }
 
     plugins {
