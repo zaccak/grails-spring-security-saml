@@ -51,11 +51,11 @@ import org.apache.commons.httpclient.HttpClient
 
 class SpringSecuritySamlGrailsPlugin {
     // the plugin version
-    def version = "2.0.0"
+    def version = "2.0.1"
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "1.3 > *"
+    def grailsVersion = "2.5 > *"
     // the other plugins this plugin depends on
-    def dependsOn = ['springSecurityCore' : '1.2 > *']
+    def dependsOn = ['springSecurityCore' : '2.0.0']
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
 		'grails-app/domain/**',

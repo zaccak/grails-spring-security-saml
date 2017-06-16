@@ -62,11 +62,12 @@ grails.project.dependency.resolution = {
         compile('org.owasp.esapi:esapi:2.0.1') {
             excludes 'antisamy', 'bsh-core', 'commons-beanutils-core', 'commons-collections', 'commons-configuration', 'commons-fileupload', 'commons-io', 'jsp-api', 'junit', 'log4j', 'servlet-api', 'xom'
         }
-        compile ("org.springframework.security.extensions:spring-security-saml2-core:1.0.1.RELEASE") {
-            export = false
-        }
-        compile('org.springframework.security:spring-security-web:3.2.8.RELEASE')
 
+		compile ("org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE") {
+            export = false
+            excludes 'spring-security-web'
+        }
+        
         compile "org.jdom:jdom-legacy:1.1.3"
     }
 
@@ -74,13 +75,13 @@ grails.project.dependency.resolution = {
 
         compile (   ":build-test-data:2.4.0",
                     ":guard:2.1.0",
-                    ":spring-security-core:2.0-RC5" ) {
+                    ":spring-security-core:2.0.0" ) {
             export = false
         }
         test    ":code-coverage:2.0.3-3"
-        build(  ":tomcat:7.0.52.1",
+        build(  ":tomcat:8.0.33",
                 ":hibernate:3.6.10.19",
-                ":release:3.1.1",
+                ":release:3.1.2",
                 ":rest-client-builder:2.1.1") {
             export = false
         }
